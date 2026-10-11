@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strataforge
+  labels:
+    app: strataforge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: strataforge
+  template:
+    metadata:
+      labels:
+        app: strataforge
+    spec:
+      containers:
+        - name: strataforge
+          image: strataforge:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: STRATA_BACKEND
+              value: "mock"
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1"

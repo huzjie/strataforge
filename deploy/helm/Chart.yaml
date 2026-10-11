@@ -1,0 +1,6 @@
+apiVersion: v2
+name: strataforge
+description: Heterogeneous tiered inference engine (125B MoE on consumer hardware)
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

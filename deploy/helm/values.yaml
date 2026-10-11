@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: strataforge
+  tag: latest
+  pullPolicy: IfNotPresent
+
+backend: mock
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "500m"
+  limits:
+    memory: "2Gi"
+    cpu: "1"

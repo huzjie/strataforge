@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strataforge"
+version = "1.0.0"
+description = "Heterogeneous tiered inference engine: run a 125B sparse MoE on consumer hardware via GPU/RAM/SSD tiering + speculative decoding."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "strataforge contributors" }]
+keywords = ["moe", "inference", "quantization", "speculative-decoding", "llm", "zero-dependency"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+vllm = ["vllm>=0.4"]
+transformers = ["transformers>=4.40"]
+langchain = ["langchain-openai>=0.1"]
+
+[project.scripts]
+strataforge = "strataforge.cli.main:main"
+
+[tool.setuptools.packages.find]
+include = ["strataforge*"]
